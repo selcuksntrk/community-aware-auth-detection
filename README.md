@@ -12,7 +12,7 @@ The central question is:
 
 > Under measured CPU and memory constraints, how do community features, graph refresh frequency, and snapshot availability affect known-positive detection and end-to-end processing performance?
 
-The project emphasizes causal feature computation, reproducibility, state management, failure recovery, and empirical tradeoffs. It is designed as a portfolio project for ML systems engineering and a guided, hands-on learning journey owned by the developer.
+The project emphasizes causal feature computation, reproducibility, state management, failure recovery, and empirical tradeoffs.
 
 ## Relationship to existing work
 
@@ -24,13 +24,13 @@ See [Related work and attribution](docs/related_work.md) for six relevant projec
 
 ## Planned experiment
 
-| Variant | Method | Purpose |
-|---|---|---|
-| B0 | Deterministic novelty rule | Simple reference |
-| B1 | Isolation Forest with temporal behavioral features | Tabular ML baseline |
-| B2 | B1 plus host relationship and graph features | Value of graph structure |
-| B3 | B2 plus Louvain community features | Value of community context |
-| B4 | B2 plus equivalent Leiden community features | Alternative community algorithm |
+| Variant | Method                                             | Purpose                         |
+| ------- | -------------------------------------------------- | ------------------------------- |
+| B0      | Deterministic novelty rule                         | Simple reference                |
+| B1      | Isolation Forest with temporal behavioral features | Tabular ML baseline             |
+| B2      | B1 plus host relationship and graph features       | Value of graph structure        |
+| B3      | B2 plus Louvain community features                 | Value of community context      |
+| B4      | B2 plus equivalent Leiden community features       | Alternative community algorithm |
 
 All variants will use the same chronological splits, eligible event population, alarm grouping, and evaluation budgets. The initial graph window is 24 hours; the initial refresh interval is 1 hour. A focused follow-up will compare 15-minute, 1-hour, and 4-hour refresh schedules with other experimental controls fixed.
 
@@ -76,29 +76,21 @@ These are acceptance criteria, not claims of tests already passing.
 
 ## Development roadmap
 
-| Stage | Deliverable | Current status |
-|---|---|---|
-| M0–M1 | Package, CLI, deterministic synthetic data, streaming ingest, audit | Planned |
-| M2 | LANL adapter, label coverage audit, split decision | Planned |
-| M3–M4 | Causal features, baseline models, evaluation | Planned |
-| M5 | Graph snapshots and Louvain/Leiden ablations | Planned |
-| M6 | Operational replay, recovery tests, profiling | Planned |
-| M7 | Verified one-command demo, CI, documentation | Planned |
-| M8 | Real-data experiments and measured quality/cost report | Planned |
+| Stage | Deliverable                                                         | Current status |
+| ----- | ------------------------------------------------------------------- | -------------- |
+| M0–M1 | Package, CLI, deterministic synthetic data, streaming ingest, audit | Planned        |
+| M2    | LANL adapter, label coverage audit, split decision                  | Planned        |
+| M3–M4 | Causal features, baseline models, evaluation                        | Planned        |
+| M5    | Graph snapshots and Louvain/Leiden ablations                        | Planned        |
+| M6    | Operational replay, recovery tests, profiling                       | Planned        |
+| M7    | Verified one-command demo, CI, documentation                        | Planned        |
+| M8    | Real-data experiments and measured quality/cost report              | Planned        |
 
 The implementation details, user checklist, Git workflow, and acceptance criteria are in [CODEX_PROJECT_START.md](CODEX_PROJECT_START.md), written in Turkish. The related-work review and this README are initial documentation deliverables; their existence does not complete the implementation milestones.
 
-## Starting development with Codex
+## Project status
 
-Place this README at the project root and `related_work.md` in `docs/`. Keep the updated `CODEX_PROJECT_START.md` at the root. Open that folder in Codex and use the initial message in Section 2 of the plan.
-
-**Working mode: guided learning, one small step at a time.** The developer performs the exercises and makes design decisions; Codex explains concepts, reviews attempts, and provides progressively more detailed help when needed. The first interaction covers the project purpose and environment inspection only. It does not scaffold the full repository, install dependencies, make commits, or complete M0/M1 automatically.
-
-Each step follows: explain the goal and relevant concept, provide a small task, wait for the developer's attempt, review the output, and record the learning. Code generation or command execution can be delegated for a specifically selected step; that delegation does not authorize advancing through later milestones. A request to continue means the next small learning step.
-
-Section 12.1 of the implementation plan breaks down data analysis, preprocessing, feature engineering, model training/evaluation, graph methods, replay, recovery, profiling, and reproducibility into practical exercises. Technical completion and learning progress are tracked separately. Milestones are cumulative targets, not single-session assignments.
-
-There is no executable quickstart yet. After M0/M1 have been implemented and verified in a clean environment, document the working installation and ingest commands here. Add the one-command end-to-end demo only after M7 passes. Do not publish anticipated CLI behavior as an available feature.
+Implementation is pending. Installation instructions and runnable examples will be added as the corresponding components are implemented and verified.
 
 ## Results and reproducibility
 
@@ -117,4 +109,4 @@ External repositories' published scores are not comparable baselines until their
 
 Prior work and future code reuse are tracked in [docs/related_work.md](docs/related_work.md). No source code from those projects has been imported in preparing these documents. Before importing code, verify its exact license/version and retain required notices. Project code licensing will be selected before public release; do not assume a license from the visibility of a repository.
 
-Data terms and dependency licenses are separate from the project's own code license. For LANL data, use the citation supplied by the provider: Alexander D. Kent, *Comprehensive, Multi-Source Cyber-Security Events*, 2015, DOI: [10.17021/1179829](https://doi.org/10.17021/1179829).
+Data terms and dependency licenses are separate from the project's own code license. For LANL data, use the citation supplied by the provider: Alexander D. Kent, _Comprehensive, Multi-Source Cyber-Security Events_, 2015, DOI: [10.17021/1179829](https://doi.org/10.17021/1179829).
