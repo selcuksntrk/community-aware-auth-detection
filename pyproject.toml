@@ -7,5 +7,10 @@ requires-python = ">=3.12"
 requires = ["hatchling>=1.26"]
 build-backend = "hatchling.build"
 
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
 [project.scripts]
 authgraph = "authgraph.cli:main"
