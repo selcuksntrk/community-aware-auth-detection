@@ -10,6 +10,8 @@ Python 3.12.15 ortamında authgraph 0.1.0.dev0 import edildi. uv sync --locked -
 
 .pth dosyasındaki hidden bayrağı kaldırıldıktan sonra authgraph.cli --help iki ardışık çalıştırmada başarılı oldu; son kontrolde bayrak yoktu.
 
+[project.scripts] tanımı eklendikten sonra uv sync çalıştırıldı; .venv/bin/authgraph --help beklenen yardım ekranını gösterdi.
+
 ## Open questions
 
 - .pth dosyasının hidden bayrağı tekrar gözlendi; bayrağı ekleyen işlem henüz belirlenmedi.
