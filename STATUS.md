@@ -2,16 +2,19 @@
 
 ## Current step
 
-M0 kapsamında yerel paket kurulumu; M0 henüz tamamlanmadı.
+M0 kapsamında CLI yardım ekranı doğrulandı; ortam sorunu açık, M0 henüz tamamlanmadı.
 
 ## Verified
 
 Python 3.12.15 ortamında authgraph 0.1.0.dev0 import edildi. uv sync --locked --reinstall-package authgraph sonrasında da kontrol geçti.
 
+.pth dosyasındaki hidden bayrağı kaldırıldıktan sonra authgraph.cli --help iki ardışık çalıştırmada başarılı oldu; son kontrolde bayrak yoktu.
+
 ## Open questions
 
-İlk .pth dosyasındaki hidden bayrağının kaynağı bilinmiyor. Temiz ortam kurulumu henüz sınanmadı.
+- .pth dosyasının hidden bayrağı tekrar gözlendi; bayrağı ekleyen işlem henüz belirlenmedi.
+- Temiz ortam kurulumu henüz sınanmadı.
 
 ## Next small step
 
-İncelenen paket kurulumu dosyalarını commit edip GitHub'a göndermek.
+CLI ve durum notu değişikliklerini inceleyip commit için hazırlamak.
