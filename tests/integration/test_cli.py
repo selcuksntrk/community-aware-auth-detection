@@ -9,6 +9,7 @@ def test_cli_help(tmp_path: Path) -> None:
     result = subprocess.run(
         [sys.executable, "-I", str(cli), "--help"],
         cwd=tmp_path,
+        check=False,
         capture_output=True,
         text=True,
         timeout=10,
@@ -24,6 +25,7 @@ def test_cli_rejects_unknown_option(tmp_path: Path) -> None:
     result = subprocess.run(
         [sys.executable, "-I", str(cli), "--unknown"],
         cwd=tmp_path,
+        check=False,
         capture_output=True,
         text=True,
         timeout=10,

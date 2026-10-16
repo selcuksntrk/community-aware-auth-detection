@@ -16,6 +16,8 @@ Yeni bir geçici sanal ortamda UV_PROJECT_ENVIRONMENT ile uv sync --locked çal�
 
 Yeni geçici ortamda uv sync --locked --no-editable ile normal kurulum yapıldı. Import yolu ortamın site-packages/authgraph dizinini gösterdi. tests/integration/test_cli.py içindeki yardım ve bilinmeyen seçenek testleri, chflags uygulanmadan geçti: 2 passed.
 
+Ruff 0.17.1 ile lint ve biçim kontrolleri geçti. subprocess.run çağrılarında check=False açıkça belirtildi. Değişiklik sonrası yeni geçici ortamda uv sync --locked --no-editable ile kurulum yapıldı; iki CLI entegrasyon testi geçti: 2 passed.
+
 ## Open questions
 
 - .pth dosyasının hidden bayrağı tekrar gözlendi; bayrağı ekleyen işlem henüz belirlenmedi.
