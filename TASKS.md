@@ -31,6 +31,26 @@ Kavram notu: Test başarısı, beklenen davranışın gerçekleşmesidir; bu dav
 
 Yerel editable kurulumdaki `.pth` dosyasında macOS `hidden` bayrağı tekrar gözlendi ve import başarısızlıkları yaşandı. Bayrak kaldırıldığında import çalıştı; bayrağı ekleyen işlem henüz belirlenmedi. Normal kurulumdaki test başarısı bu sorunun kalıcı olarak çözüldüğünü göstermez.
 
+## Öğrenme denemesi — Önce değerlendir, sonra güncelle
+
+- Uygulayan: Codex açıklama ve örnek kod sağladı; kullanıcı Python konsolunda çalıştırıp çıktıları paylaştı. Notu kullanıcının isteğiyle Codex hazırladı.
+- Teknik durum: Konsol örneği doğrulandı; zaman damgasına göre gruplama veya proje koduna entegrasyon henüz uygulanmadı.
+- Öğrenme gözlemi: Açıklama ve örnek kod desteğiyle üyelik sonucu ile bağlantı sayısı konsolda ayrı ayrı gözlendi. Bağımsız uygulama becerisi henüz değerlendirilmedi.
+
+### Gözlenen sonuçlar
+
+Başlangıçta `edge_counts = {}` idi. Aynı saniyeye ait olduğu varsayılan iki ayrı olay, aynı `laptop-01 → admin-server` bağlantısını içeriyordu. Güncellemeden önce hesaplanan `seen_before` listesi `[False, False]` oldu: her öğe bir olayın geçmişte görülüp görülmediğini ifade eder.
+
+İki olayın ardından sözlük `{('laptop-01', 'admin-server'): 2}` oldu. Sonradan yeniden çalıştırılan üyelik kontrolleri `[True, True]` döndürdü. Bu son kontrol sayacı artırmadı; daha önce hesaplanmış `seen_before` listesi de kendiliğinden değişmedi.
+
+### Açıklama ve düzeltme
+
+Kullanıcı, ilk `False` sonucunu bağlantının daha önce görülmemesiyle doğru ilişkilendirdi; ancak ikinci `False` değerini bağlantı sayısına ait sandı. `edge_counts` bir sözlüktür, boolean değildir. İlk kontroldeki iki `False`, iki olayın üyelik sonuçlarıdır; güncelleme sonrasında bağlantının sayısı `2` olur. Yeniden üyelik kontrolünün `True` olması için bağlantının bir kez eklenmesi de yeterlidir.
+
+Son kontrolde kullanıcı sözlüğü bağlantı sayısı `1` olacak şekilde yeniden atadı. Üyelik kontrolü `True`, sayaç okuması `1` döndürdü. Aynı sözlük üzerinde art arda yapılan iki üyelik kontrolü de `[True, True]` verdi. Böylece tek bir eklemenin her iki üyelik kontrolü için de yeterli olduğu konsol çıktısıyla doğrulandı.
+
+Kavram notu: Aynı zaman damgasındaki bütün olaylar aynı geçmişle değerlendirilir; durum daha sonra topluca güncellenir. Bu örnek sıralamayı gösterir, zaman damgalarını gerçekten işleyen bir uygulamayı doğrulamaz.
+
 ## Final portföy teslimatı
 
 Öğrenme ve eşli çalışma belgeleri final proje ağacında bulunmayacak.
