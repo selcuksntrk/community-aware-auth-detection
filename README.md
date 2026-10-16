@@ -2,7 +2,7 @@
 
 A planned reproducible ML systems study of graph community features for authentication anomaly detection, with explicit measurement of detection quality, latency, memory, and graph maintenance cost.
 
-**Status: planning and documentation — implementation and benchmarks pending.** This README describes the intended system. No runnable package, completed test suite, real-data benchmark, or production deployment is claimed at this stage. Last documentation update: 2026-10-14.
+**Status: initial package and CLI implemented; M0 in progress.** Two CLI integration tests passed in a fresh temporary environment using a non-editable installation, and Ruff lint and format checks passed. An intermittent import issue in the local editable installation remains unresolved. The detection pipeline and benchmarks are still planned. Last documentation update: 2026-10-17.
 
 ## Why this project?
 
@@ -78,7 +78,7 @@ These are acceptance criteria, not claims of tests already passing.
 
 | Stage | Deliverable                                                         | Current status |
 | ----- | ------------------------------------------------------------------- | -------------- |
-| M0–M1 | Package, CLI, deterministic synthetic data, streaming ingest, audit | Planned        |
+| M0–M1 | Package, CLI, deterministic synthetic data, streaming ingest, audit | In progress; synthetic data and ingest not yet implemented |
 | M2    | LANL adapter, label coverage audit, split decision                  | Planned        |
 | M3–M4 | Causal features, baseline models, evaluation                        | Planned        |
 | M5    | Graph snapshots and Louvain/Leiden ablations                        | Planned        |
@@ -90,7 +90,11 @@ The implementation details, user checklist, Git workflow, and acceptance criteri
 
 ## Project status
 
-Implementation is pending. Installation instructions and runnable examples will be added as the corresponding components are implemented and verified.
+The minimal `authgraph` package and CLI entry point are implemented. On Python 3.12.15, the CLI help and unknown-option integration tests passed after `uv sync --locked --no-editable` in a fresh temporary environment. Ruff 0.17.1 lint and format checks passed for `src` and `tests`.
+
+The local editable installation has intermittently failed to import `authgraph` when its `.pth` file carries the macOS `hidden` flag. Removing the flag restored imports, but the process setting it has not been identified. The temporary-environment checks used the same machine and existing uv cache; another machine and an empty cache have not been tested.
+
+M0 is not complete. Synthetic data generation, ingest, feature computation, models, and benchmarks remain unimplemented. See [verification notes and open questions](STATUS.md) for the recorded checks.
 
 ## Results and reproducibility
 

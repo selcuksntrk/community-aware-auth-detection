@@ -25,4 +25,4 @@ Ruff 0.17.1 ile lint ve biçim kontrolleri geçti. subprocess.run çağrıların
 
 ## Next small step
 
-CLI ve durum notu değişikliklerini inceleyip commit için hazırlamak.
+M0 gereksinimlerini mevcut kurulum, CLI, test ve Ruff doğrulamalarıyla karşılaştırıp sıradaki eksik küçük adımı seçmek.
